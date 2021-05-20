@@ -23,7 +23,8 @@ RUN apt-get -qq update \
       lib32z1 \
       unzip \
       locales \
-      curl \
+      nodejs \
+      npm \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
@@ -49,4 +50,4 @@ RUN mkdir -p /root/.android \
 ADD packages.txt /sdk
 RUN sdkmanager --package_file=/sdk/packages.txt
 
-RUN curl -sL https://firebase.tools | bash
+RUN npm install -g firebase-tools
