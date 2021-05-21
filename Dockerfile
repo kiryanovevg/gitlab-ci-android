@@ -11,6 +11,15 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq update \
  && apt-get install -qqy --no-install-recommends \
+      curl \
+      bash \
+      sudo \
+ && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+      
+RUN curl -sL https://firebase.tools | bash      
+
+RUN apt-get -qq update \
+ && apt-get install -qqy --no-install-recommends \
       bzip2 \
       curl \
       git-core \
@@ -49,5 +58,3 @@ RUN mkdir -p /root/.android \
 
 ADD packages.txt /sdk
 RUN sdkmanager --package_file=/sdk/packages.txt
-
-RUN curl -sL https://firebase.tools | bash
