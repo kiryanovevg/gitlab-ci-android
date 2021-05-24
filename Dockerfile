@@ -14,10 +14,12 @@ RUN apt-get -qq update \
       curl \
       bash \
       sudo \
+      which \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
       
 RUN curl -sL https://firebase.tools | bash
-RUN firebase --version
+RUN which firebase
+RUN /usr/bin/firebase --version
 
 RUN apt-get -qq update \
  && apt-get install -qqy --no-install-recommends \
