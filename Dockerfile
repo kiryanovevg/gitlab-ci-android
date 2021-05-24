@@ -11,17 +11,6 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq update \
  && apt-get install -qqy --no-install-recommends \
-      curl \
-      bash \
-      sudo \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-      
-RUN curl -sL https://firebase.tools | bash
-RUN which firebase
-RUN /usr/bin/firebase --version
-
-RUN apt-get -qq update \
- && apt-get install -qqy --no-install-recommends \
       bzip2 \
       curl \
       git-core \
@@ -34,8 +23,6 @@ RUN apt-get -qq update \
       lib32z1 \
       unzip \
       locales \
-      bash \
-      sudo \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
