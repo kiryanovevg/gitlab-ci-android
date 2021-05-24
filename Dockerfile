@@ -14,7 +14,6 @@ RUN apt-get -qq update \
       curl \
       bash \
       sudo \
-      which \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
       
 RUN curl -sL https://firebase.tools | bash
